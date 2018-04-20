@@ -1,6 +1,5 @@
 #!/bin/sh
-while [ 1 ]
-do
+for i in $(seq 0 $NLOGS); do
    waitTime=$(shuf -i 1-5 -n 1)
    sleep $waitTime &
    wait $!

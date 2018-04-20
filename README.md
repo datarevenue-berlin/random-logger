@@ -7,7 +7,7 @@ Docker image for a random log generator, based on Alpine Linux.
 
 ## What is this?
 
-This image will execute a container which will generate four random log messages:
+This image will execute a container which will generate four random log messages and terminate after displaying `$NLOGS` lines:
 
 * `2018-03-02T22:33:27-06:00 ERROR something happened in this execution.`
 * `2018-03-02T22:33:27-06:00 INFO takes the value and converts it to string.`
@@ -31,10 +31,10 @@ To use this image you must do as follows:
 
 ```bash
 # you can use tags latest
-docker pull chentex/random-logger:latest
+docker pull drtools/random-logger:latest
 
 # to run the image just execute
-docker run -d chentex/random-logger:latest
+docker run -e NLOGS=10 drtools/random-task /run_task
 ```
 
 You will have now a docker container running and generating log messages, locate it running:
@@ -65,7 +65,7 @@ Go to the folder in your terminal and type this:
 
 ```bash
 # cd into folder
-cd random-logger
+cd random-task
 # Then build the new image
 docker build -f Dockerfile .
 ```

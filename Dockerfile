@@ -1,3 +1,3 @@
 FROM alpine:3.6
-COPY ./entrypoint.sh /
-ENTRYPOINT ["/entrypoint.sh"]
+COPY ./run_task /
+RUN chmod +x /run_task
