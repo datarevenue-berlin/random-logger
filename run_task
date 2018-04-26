@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 for i in $(seq 0 $NLOGS); do
    waitTime=0.$(shuf -i 1-9 -n 1)
    sleep $waitTime &
@@ -16,3 +16,10 @@ for i in $(seq 0 $NLOGS); do
       ;;
    esac
 done
+if [[ -z "$FAIL" ]]; then
+    echo "This task succeeded."
+    exit 0
+else
+    echo "This task failed."
+    exit 1
+fi
